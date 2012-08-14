@@ -1,0 +1,30 @@
+<%= form_for(@url, :remote => true, :class => "form-horizontal") do |f| %>
+  <% if @url.errors.any? %>
+    <div class="row-fluid featured">
+      <div class="span12">
+        <div id="error_explanation">
+          <h2><%= pluralize(@url.errors.count, "error") %> prohibited this url from being saved:</h2>
+
+          <ul>
+          <% @url.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  
+    <div class="control-group">
+        <div class="controls">
+          <div class="row-fluid">
+            <%= f.text_field :url, :class => "span9 input-custom", :placeholder => "Enter the url you want to shorten" %>
+            <div class="span2">
+            <%= f.submit "Shorten", :class => "button-custom btn-warning", :id => "shorten" %>
+            </div>
+        </div>
+    </div>
+  </div>
+<% end %>
+<div id="url">
+</div>

@@ -1,0 +1,30 @@
+<h2>API</h2>
+<p>Shorten a new url</p>
+<pre class="prettyprint
+     linenums">
+POST http://localhost:3000/api/urls.json
+</pre>
+<p>Example</p>
+<pre class="prettyprint
+     linenums">
+require 'rubygems'
+require 'oauth'
+
+# make the consumer out of your secret and key
+consumer_key = "your key"
+consumer_secret = "your secret"
+consumer = OAuth::Consumer.new(consumer_key, consumer_secret,
+                              :site => "http://localhost:3000",
+                              :request_token_path => "/oauth/request_token",
+                              :authorize_path => "/oauth/authorize",
+                              :access_token_path => "/oauth/access_token",
+                              :http_method => :get)
+
+# make the access token from your consumer
+access_token = OAuth::AccessToken.new consumer
+
+# make a signed request!
+res = access_token.post("/api/urls.json", '{"url":{"url":"http://www.paypal.com"}}', { 'Accept'=>'application/json', 'Content-Type' => 'application/json' })
+
+p res.body
+</pre>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YAUS</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="info message">
+  		 <h3>FYI, something just happened!</h3>
+  		 <p>This is just an info notification message.</p>
+  </div>
+
+	<div class="error message" id="error-message">
+  		 <h3>Oops, something went wrong...</h3>
+  		 <p id="errors">The url is blank or invalid... </p>
+  </div>
+
+  <div class="warning message">
+  		 <h3>Wait, I must warn you!</h3>
+  		 <p>This is just a warning notification message.</p>
+  </div>
+
+  <div class="success message">
+  		 <h3>Congrats, you did it!</h3>
+  		 <p>This is just a success notification message.</p>
+
+  </div>
+  
+
+	<header class="container-fluid">
+		<div class="row-fluid">
+			<div class="span5">
+				<h1 class="large-header"><%= link_to "YAUS", root_path %></h1>
+			</div>
+			<nav class="span7">
+				<ul class="nav pull-right">
+					<li class="active"><%= link_to "Home", root_path %></li>
+					<li><%= link_to "API", pages_developers_path %></li>
+					<li><%= link_to "Contact Us", "mailto:yaus.contact@gmail.com" %></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12 top-title">
+				<h2> Yet Another Url <b>Shortener</b> </h2>
+			</div>
+		</div>
+		
+		
+		<div class="box hero-unit">	 
+		    <%= yield %>
+		</div>
+		
+		<div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12">
+      <p><a href="#">Facebook</a> <a href="#">Twitter</a> <a href="#">Google+</a> Copyright © 2012 ianzy</p>
+      </div>
+    </div>
+    </div>
+	</div>
+	
+  <!-- <footer class="container-fluid footer-custom">
+    <div class="container-fluid">
+    <div class="row-fluid">
+      
+      <div class="span12">
+        <p>(c) 2012 ianzy.</p>
+      </div>
+    </div>
+    </div>
+  </footer> -->
+	
+</body>
+</html>
