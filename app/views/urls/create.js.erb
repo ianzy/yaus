@@ -1,6 +1,6 @@
 <% if @url.errors.any? %>
 	$('#error-message').animate({top:"0"}, 500).delay(3000).animate({top: -$(this).outerHeight()}, 1000);
 <% else %>
-	$("#url").html('<%= "http://localhost:3000/#{@url.short_url}" %>');
+	$("#url").html('<%= "http://yausdemo.herokuapp.com/#{@url.short_url}" %>');
 	// $("#url").effect('highlight', {color: '#FFFF99'}, 500);
 <% end %>

@@ -5,7 +5,7 @@ require 'oauth'
 consumer_key = "Eo82fErKW17O6Ro5mHk3XLqWMex7zGMw2HzdUquu"
 consumer_secret = "ZlwK53aWEZklAIvpzhxVegsHzCMFir1W0ZbdQxpn"
 consumer = OAuth::Consumer.new(consumer_key, consumer_secret,
-                               :site => "http://localhost:3000",
+                               :site => "http://yausdemo.herokuapp.com",
                                :request_token_path => "/oauth/request_token",
                                :authorize_path => "/oauth/authorize",
                                :access_token_path => "/oauth/access_token",
