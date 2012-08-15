@@ -8,9 +8,14 @@ class UriValidator < ActiveModel::EachValidator
     
     if value =~ configuration[:format]
       begin # check header response
-        case Net::HTTP.get_response(URI.parse(value))
-          when Net::HTTPSuccess then true
-          else object.errors.add(attribute, configuration[:message]) and false
+        uri = URI.parse(value)
+        http = Net::HTTP.new(uri.host, uri.port)
+        http.use_ssl = true if value =~ /^https/
+        case http.head(uri.request_uri)
+        when Net::HTTPOK then true
+        when Net::HTTPFound then true
+        when Net::HTTPMovedPermanently then true
+        else object.errors.add(attribute, configuration[:message]) and false
         end
       rescue # Recover on DNS failures..
         object.errors.add(attribute, configuration[:message]) and false
