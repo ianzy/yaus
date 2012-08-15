@@ -6,6 +6,6 @@ class CreateUrls < ActiveRecord::Migration
 
       t.timestamps
     end
-    execute "SELECT setval('customers_id_seq', 1000);"
+    execute "SELECT setval('urls_id_seq', 1000);"
   end
 end
