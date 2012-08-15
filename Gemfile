@@ -5,8 +5,9 @@ gem 'rails', '3.2.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-
+group :development do
+  gem 'sqlite3'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -25,6 +26,8 @@ gem 'jquery-rails'
 
 gem "oauth-plugin"
 
+gem 'devise'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -37,5 +40,13 @@ gem "oauth-plugin"
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-# gem 'debugger'
+# group :development do
+#   # To use debugger
+#   # gem 'debugger'
+# end
+
+group :production do
+  # gems specifically for Heroku go here
+  gem 'pg'
+  gem 'thin'
+end

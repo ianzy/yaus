@@ -1,4 +1,6 @@
 Shorturl::Application.routes.draw do
+  devise_for :users
+
   get "pages/welcome"
 
   get "pages/developers"
@@ -16,6 +18,9 @@ Shorturl::Application.routes.draw do
   match '/oauth/authorize',     :to => 'oauth#authorize',     :as => :authorize
 
   match '/oauth',               :to => 'oauth#index',         :as => :oauth
+  
+  post 'oauth/revoke'
+  
 
   namespace :api do
     resources :urls, :only => [:create]

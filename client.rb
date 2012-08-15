@@ -2,8 +2,8 @@ require 'rubygems'
 require 'oauth'
 
 # make the consumer out of your secret and key
-consumer_key = "1rdC3EcM3qvKY8uPIeEU3h8KDGIXh9hjaDUoNv3f"
-consumer_secret = "mXUXZrvT2y4VW7Q86Vf0sP8uTZLfaBIVOeDBjVR7"
+consumer_key = "Eo82fErKW17O6Ro5mHk3XLqWMex7zGMw2HzdUquu"
+consumer_secret = "ZlwK53aWEZklAIvpzhxVegsHzCMFir1W0ZbdQxpn"
 consumer = OAuth::Consumer.new(consumer_key, consumer_secret,
                                :site => "http://localhost:3000",
                                :request_token_path => "/oauth/request_token",

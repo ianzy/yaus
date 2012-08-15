@@ -1,6 +1,6 @@
 class CreateUrls < ActiveRecord::Migration
   def change
-    create_table :urls do |t|
+    create_table :urls, :options => "AUTO_INCREMENT = 1000" do |t|
       t.string :url
       t.string :hash
 

@@ -61,5 +61,7 @@ module Shorturl
     config.assets.version = '1.0'
     
     config.middleware.use OAuth::Rack::OAuthFilter
+    
+    config.assets.initialize_on_precompile = false
   end
 end

@@ -1,0 +1,18 @@
+<h2>Resend confirmation instructions</h2>
+
+<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, :class => "form-horizontal" }) do |f| %>
+  <fieldset>
+  <%= devise_error_messages! %>
+
+  <div class="control-group">
+  <%= f.label :email, :class=>"control-label" %>
+  <div class="controls">
+  <%= f.email_field :email %>
+  </div>
+  </div>
+
+  <div class="form-actions"><%= f.submit "Resend confirmation instructions", :class => "btn btn-success" %></div>
+  </fieldset>
+<% end %>
+
+<%= render "devise/shared/links" %>

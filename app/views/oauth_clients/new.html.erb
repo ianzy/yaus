@@ -1,5 +1,9 @@
-<h1>Register a new application</h1>
-<%= form_for :client_application, :url => { :action => :create } do |f| %>
+<h2>Register a new application</h2>
+<%= form_for :client_application, :url => { :action => :create }, :class => "form-horizontal" do |f| %>
+  <fieldset>
    <%= render :partial => "form", :locals => { :f => f } %>
-   <%= submit_tag "Register" %>
+   <div class="form-actions">
+      <%= submit_tag "Register", :class => "btn btn-success" %>
+   </div>
+   </fieldset>
 <% end %>

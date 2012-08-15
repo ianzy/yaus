@@ -1,5 +1,5 @@
 <div class="flash"><%= flash[:notice] %></div>
-<h1>OAuth Client Applications</h1>
+<h2>OAuth Client Applications</h2>
 <% unless @tokens.empty? %>
 <p>The following tokens have been issued to applications in your name</p>
 <table>
@@ -32,11 +32,27 @@
     You have the following client applications registered:
   </p>
   <% @client_applications.each do |client|%>
-    <% div_for client do %>
-      <%= link_to client.name, oauth_client_path(client) %>-
-        <%= link_to 'Edit', edit_oauth_client_path(client) %>
-        <%= link_to 'Delete', oauth_client_path(client), :confirm => "Are you sure?", :method => :delete %>
-    <% end %>
+    <div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= link_to client.name, oauth_client_path(client) %></td>
+            <td>
+              <%= link_to 'Edit', edit_oauth_client_path(client) %>
+              <%= link_to 'Delete', oauth_client_path(client), :confirm => "Are you sure?", :method => :delete %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+
+    </div>
   <% end %>
 <% end %>
 <br />

@@ -11,6 +11,14 @@
  *= require_self
  */
 
+.yaus-center {
+	text-align: center;
+}
+
+.white-bg {
+	background-color: white;
+}
+
 .message
 {
 			text-align: center;

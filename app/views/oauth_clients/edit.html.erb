@@ -1,7 +1,11 @@
-<h1>Edit your application</h1>
-<%= form_for :client_application, @client_application, :url => oauth_client_path(@client_application), :html => {:method => :put}  do |f| %>
+<h2>Edit your application</h2>
+<%= form_for :client_application, :url => oauth_client_path(@client_application), :html => {:method => :put, :class => "form-horizontal"}  do |f| %>
+         <fieldset>
        <%= render :partial => "form", :locals => { :f => f } %>
-       <%= submit_tag "Edit" %>
+       <div class="form-actions">
+       <%= submit_tag "Edit", :class => "btn btn-success" %>
+       </div>
+         </fieldset>
 <% end %>
 <%= link_to 'Show', oauth_client_path(@client_application) %> |
 <%= link_to 'Back', oauth_clients_path %>

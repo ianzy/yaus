@@ -38,12 +38,27 @@
 				<ul class="nav pull-right">
 					<li class="active"><%= link_to "Home", root_path %></li>
 					<li><%= link_to "API", pages_developers_path %></li>
-					<li><%= link_to "Contact Us", "mailto:yaus.contact@gmail.com" %></li>
+					<li><%= link_to "Contact Us", "mailto:yaus.contact@gmail.com" %></li> 
+					<% if user_signed_in? %>
+            <li>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+            </li>
+          <% else %>
+            <li>
+            <%= link_to('Login', new_user_session_path)  %>  
+            </li>
+          <% end %>
 				</ul>
 			</nav>
 		</div>
 	</header>
 	
+	<% unless notice.nil? %>
+	<p class="notice yaus-center"><%= notice %></p>
+	<% end %>
+	<% unless alert.nil? %>
+  <p class="alert yaus-center"><%= alert %></p>
+  <% end %>
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span12 top-title">
@@ -52,7 +67,7 @@
 		</div>
 		
 		
-		<div class="box hero-unit">	 
+		<div class="white-bg hero-unit">	 
 		    <%= yield %>
 		</div>
 		
